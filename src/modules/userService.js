@@ -1,4 +1,37 @@
 export class UserService {
+    fetchData(url) {
+        return fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                return data
+            })
+            .catch(error => {
+                console.log('ошибка', error)
+            })
+    }
+
+    sendData(url, method, data) {
+        const option = {
+            method: method,
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        }
+        return fetch(url, option)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                return data
+            })
+            .catch(error => {
+                console.log('ещё ошибка', error)
+            })
+
+    }
+
+
 
     getUsers() {
         return fetch('http://localhost:2108/users').then(res => res.json())

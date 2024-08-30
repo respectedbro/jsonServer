@@ -1,6 +1,8 @@
 import {render} from "./render";
+import {UserService} from "./userService";
 
 export const addUsers = () => {
+    const  userService = new UserService()
     const form = document.querySelector('form')
     const nameInput = form.querySelector('#form-name')
     const emailInput = form.querySelector('#form-email')
@@ -18,6 +20,9 @@ export const addUsers = () => {
             }
 
             userService.addUser(user).then(res => {
+                if (res) {
+
+                }
                 userService.getUsers().then(users => {
                     render(users)
                     form.reset()
