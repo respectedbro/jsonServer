@@ -26,6 +26,7 @@ export const render = (users) => {
                    </div>
                 </td>
           </tr>
+          
     `)
     })
 }
